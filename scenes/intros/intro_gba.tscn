@@ -1,0 +1,655 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://assets/lenioboy_fonts/i.png" type="Texture" id=1]
+[ext_resource path="res://scripts/intro.gd" type="Script" id=2]
+[ext_resource path="res://assets/sounds/fxs/gba_boot.ogg" type="AudioStream" id=3]
+[ext_resource path="res://scenes/ui/lenioboy_overlay.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/lenioboy_fonts/y.png" type="Texture" id=6]
+[ext_resource path="res://assets/lenioboy_fonts/b.png" type="Texture" id=7]
+[ext_resource path="res://assets/lenioboy_fonts/N.png" type="Texture" id=8]
+[ext_resource path="res://assets/lenioboy_fonts/E.png" type="Texture" id=9]
+[ext_resource path="res://assets/lenioboy_fonts/lenioboy.png" type="Texture" id=10]
+[ext_resource path="res://assets/lenioboy_fonts/L.png" type="Texture" id=11]
+[ext_resource path="res://assets/lenioboy_fonts/o.png" type="Texture" id=12]
+[ext_resource path="res://assets/lenioboy_fonts/leniolabs_.png" type="Texture" id=13]
+[ext_resource path="res://assets/lenioboy_fonts/leniolabs_dot.png" type="Texture" id=14]
+
+[sub_resource type="Gradient" id=5]
+offsets = PoolRealArray( 0, 0.237323, 0.496957, 0.780933, 1 )
+colors = PoolColorArray( 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1 )
+
+[sub_resource type="GradientTexture" id=6]
+gradient = SubResource( 5 )
+width = 200
+
+[sub_resource type="Animation" id=4]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("L:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 93, 92 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("L:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("L:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0, 0.301961, 0.623529, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("E:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 2.5, 2.5 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("E:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 89, 178 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("E:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.682353, 0.054902, 0.533333, 0.337255 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("N:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 132, 148 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("N:scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 3, 3 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("I:scale")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 3, 3 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("I:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 151, 87 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("B:scale")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 3, 3 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("LeniolabsDot:self_modulate")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.941176, 0.560784, 0.882353, 1 ) ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("Leniolabs:self_modulate")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.941176, 0.560784, 0.882353, 1 ) ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("O:position")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 247, 197 ) ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("Y:position")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 289, 193 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "boot"
+length = 4.7
+tracks/0/type = "value"
+tracks/0/path = NodePath("L:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.343669, 0.496961, 0.602004, 0.705237, 0.775712, 0.894831, 0.934026, 0.97386, 1.00757, 1.04754 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 65, 152 ), Vector2( 65, 152 ), Vector2( 95, 86 ), Vector2( 120, 58 ), Vector2( 120, 80 ), Vector2( 109, 90 ), Vector2( 93, 92 ), Vector2( 93, 84 ), Vector2( 93, 92 ), Vector2( 93, 84 ), Vector2( 93, 92 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("L:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.343669, 0.655743, 0.815123 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 3, 3 ), Vector2( 3, 3 ), Vector2( 3, 3 ), Vector2( 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("L:self_modulate")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.155418, 0.391674, 0.508854, 0.613437, 0.727374, 3.68339, 3.98339 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0.619608, 0, 0.623529, 0 ), Color( 0.619608, 0, 0.623529, 0 ), Color( 0.619608, 0, 0.623529, 1 ), Color( 0.980392, 0.313726, 0.105882, 1 ), Color( 0.952941, 0.917647, 0.027451, 1 ), Color( 0, 0.301961, 0.623529, 1 ), Color( 0, 0.301961, 0.623529, 1 ), Color( 0, 0.301961, 0.623529, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("E:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.345712, 0.419251, 0.569394, 0.673575, 0.776734, 0.842102, 0.965689, 1.00654, 1.0474, 1.08008, 1.12094 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 58, 236 ), Vector2( 58, 236 ), Vector2( 89.5161, 176.323 ), Vector2( 113, 100 ), Vector2( 137, 66 ), Vector2( 131, 81 ), Vector2( 126.904, 89.253 ), Vector2( 111, 92 ), Vector2( 111, 84 ), Vector2( 111, 92 ), Vector2( 111, 84 ), Vector2( 111, 92 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("E:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.473384, 0.742007, 0.882957 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 3, 3 ), Vector2( 3, 3 ), Vector2( 3, 3 ), Vector2( 1, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("E:modulate")
+tracks/5/interp = 2
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.271842, 0.451935, 0.540517, 0.642036, 0.770272, 3.68339, 3.98339 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0.709804, 0.0784314, 0.498039, 0 ), Color( 0.709804, 0.0784314, 0.498039, 0 ), Color( 0.619608, 0, 0.623529, 1 ), Color( 0.980392, 0.313726, 0.105882, 1 ), Color( 0.952941, 0.917647, 0.027451, 1 ), Color( 0, 0.301961, 0.623529, 1 ), Color( 0, 0.301961, 0.623529, 1 ), Color( 0, 0.301961, 0.623529, 0 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("N:position")
+tracks/6/interp = 2
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.417532, 0.514563, 0.721903, 0.816891, 0.871024, 0.97929, 1.01198, 1.05181, 1.09879, 1.14884 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 116, 195 ), Vector2( 116, 195 ), Vector2( 132, 148 ), Vector2( 159, 58 ), Vector2( 153, 84 ), Vector2( 148, 91 ), Vector2( 134, 92 ), Vector2( 134, 87 ), Vector2( 134, 92 ), Vector2( 134, 84 ), Vector2( 134, 92 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("N:scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 0.514563, 0.794421, 0.931286 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 3, 3 ), Vector2( 3, 3 ), Vector2( 3, 3 ), Vector2( 1, 1 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("N:self_modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 0.313867, 0.494929, 0.560478, 0.63571, 0.771128, 3.68339, 3.98339 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 0.619608, 0, 0.623529, 1 ), Color( 0.980392, 0.313726, 0.105882, 1 ), Color( 0.952941, 0.917647, 0.027451, 1 ), Color( 0, 0.301961, 0.623529, 1 ), Color( 0, 0.301961, 0.623529, 1 ), Color( 0, 0.301961, 0.623529, 0 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("I:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 0.498767, 0.591713, 0.806202, 0.895062, 1.0595, 1.09321, 1.13407, 1.17798, 1.22905 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 126, 195 ), Vector2( 126, 195 ), Vector2( 144, 155 ), Vector2( 164, 65 ), Vector2( 160, 85 ), Vector2( 151, 92 ), Vector2( 151, 87 ), Vector2( 151, 92 ), Vector2( 151, 84 ), Vector2( 151, 92 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("I:scale")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0, 0.598862, 0.883827, 1.02069 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 3, 3 ), Vector2( 3, 3 ), Vector2( 3, 3 ), Vector2( 1, 1 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("I:self_modulate")
+tracks/11/interp = 2
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0, 0.362701, 0.511024, 0.575525, 0.650757, 0.789936, 3.68339, 3.98339 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.0901961 ), Color( 0.619608, 0, 0.623529, 1 ), Color( 0.980392, 0.313726, 0.105882, 1 ), Color( 0.952941, 0.917647, 0.027451, 1 ), Color( 0, 0.301961, 0.623529, 1 ), Color( 0, 0.301961, 0.623529, 1 ), Color( 0, 0.301961, 0.623529, 0 ) ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("O_1:position")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0, 0.522216, 0.609033, 0.825565, 0.917489, 1.08704, 1.12789, 1.16364, 1.20041, 1.25148 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 180, 198 ), Vector2( 180, 198 ), Vector2( 181, 149 ), Vector2( 184, 63 ), Vector2( 187, 82 ), Vector2( 171, 92 ), Vector2( 171, 87 ), Vector2( 171, 92 ), Vector2( 171, 84 ), Vector2( 171, 92 ) ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("O_1:scale")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0, 0.773746, 0.905233, 1.05027 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 3, 3 ), Vector2( 3, 3 ), Vector2( 3, 3 ), Vector2( 1, 1 ) ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("O_1:self_modulate")
+tracks/14/interp = 2
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0, 0.484375, 0.685309, 0.774889, 0.868929, 0.978016, 3.68339, 3.98339 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.247059 ), Color( 0.619608, 0, 0.623529, 1 ), Color( 0.980392, 0.313726, 0.105882, 1 ), Color( 0.952941, 0.917647, 0.027451, 1 ), Color( 0, 0.301961, 0.623529, 1 ), Color( 0, 0.301961, 0.623529, 1 ), Color( 0, 0.301961, 0.623529, 0 ) ]
+}
+tracks/15/type = "value"
+tracks/15/path = NodePath("B:position")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 0, 0.562797, 0.847762, 0.939686, 1.03059, 1.11536, 1.14294, 1.17562, 1.20831, 1.26244 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 214, 199 ), Vector2( 214, 199 ), Vector2( 178, 52 ), Vector2( 182, 85 ), Vector2( 191.61, 90.161 ), Vector2( 201, 92 ), Vector2( 201, 87 ), Vector2( 201, 92 ), Vector2( 201, 84 ), Vector2( 201, 92 ) ]
+}
+tracks/16/type = "value"
+tracks/16/path = NodePath("B:scale")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/keys = {
+"times": PoolRealArray( 0, 0.658807, 0.937643, 1.0694 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 3, 3 ), Vector2( 3, 3 ), Vector2( 3, 3 ), Vector2( 1, 1 ) ]
+}
+tracks/17/type = "value"
+tracks/17/path = NodePath("B:self_modulate")
+tracks/17/interp = 2
+tracks/17/loop_wrap = true
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/keys = {
+"times": PoolRealArray( 0, 0.458642, 0.713211, 0.804982, 0.887737, 1.00435, 3.68339, 3.98339 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.231373 ), Color( 0.619608, 0, 0.623529, 1 ), Color( 0.980392, 0.313726, 0.105882, 1 ), Color( 0.952941, 0.917647, 0.027451, 1 ), Color( 0, 0.301961, 0.623529, 1 ), Color( 0, 0.301961, 0.623529, 1 ), Color( 0, 0.301961, 0.623529, 0 ) ]
+}
+tracks/18/type = "value"
+tracks/18/path = NodePath("O:position")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/keys = {
+"times": PoolRealArray( 0, 0.55062, 0.840449, 0.922746, 1.01936, 1.10165, 1.13762, 1.18111, 1.24976 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 247, 197 ), Vector2( 247, 197 ), Vector2( 184, 73 ), Vector2( 192.616, 84.1524 ), Vector2( 228, 92 ), Vector2( 228, 87 ), Vector2( 228, 92 ), Vector2( 228, 84 ), Vector2( 228, 92 ) ]
+}
+tracks/19/type = "value"
+tracks/19/path = NodePath("O:scale")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/keys = {
+"times": PoolRealArray( 0, 0.643651, 0.926324, 1.24976 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 3, 3 ), Vector2( 3, 3 ), Vector2( 3, 3 ), Vector2( 1, 1 ) ]
+}
+tracks/20/type = "value"
+tracks/20/path = NodePath("O:self_modulate")
+tracks/20/interp = 2
+tracks/20/loop_wrap = true
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/keys = {
+"times": PoolRealArray( 0, 0.458915, 0.725191, 0.804982, 0.91783, 0.996824, 3.684, 3.98339 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0.619608, 0, 0.623529, 0 ), Color( 0.619608, 0, 0.623529, 0 ), Color( 0.619608, 0, 0.623529, 1 ), Color( 0.980392, 0.313726, 0.105882, 1 ), Color( 0.952941, 0.917647, 0.027451, 1 ), Color( 0, 0.301961, 0.623529, 1 ), Color( 0, 0.301961, 0.623529, 1 ), Color( 0, 0.301961, 0.623529, 0 ) ]
+}
+tracks/21/type = "audio"
+tracks/21/path = NodePath("AudioStreamPlayer")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 3 )
+} ],
+"times": PoolRealArray( 0.00204276 )
+}
+tracks/22/type = "value"
+tracks/22/path = NodePath("Leniolabs:self_modulate")
+tracks/22/interp = 2
+tracks/22/loop_wrap = true
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/keys = {
+"times": PoolRealArray( 0, 0.27, 2.98, 3.24, 3.68339, 3.98339 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0.941176, 0.560784, 0.882353, 0 ), Color( 0.941176, 0.560784, 0.882353, 1 ), Color( 0.941176, 0.560784, 0.882353, 1 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
+}
+tracks/23/type = "value"
+tracks/23/path = NodePath("LeniolabsDot:self_modulate")
+tracks/23/interp = 2
+tracks/23/loop_wrap = true
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/keys = {
+"times": PoolRealArray( 0, 0.27, 2.99, 3.23, 3.68339, 3.98339 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0.941176, 0.560784, 0.882353, 0 ), Color( 0.941176, 0.560784, 0.882353, 1 ), Color( 0.941176, 0.560784, 0.882353, 1 ), Color( 0.0666667, 0.6, 0.65098, 1 ), Color( 0.0666667, 0.6, 0.65098, 1 ), Color( 0, 0, 0, 0 ) ]
+}
+tracks/24/type = "value"
+tracks/24/path = NodePath("Y:position")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/keys = {
+"times": PoolRealArray( 0, 0.568001, 0.853883, 0.929115, 1.00435, 1.05701, 1.12848, 1.17738, 1.24885 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 289, 193 ), Vector2( 289, 193 ), Vector2( 207, 52 ), Vector2( 216.4, 89 ), Vector2( 254, 92 ), Vector2( 254, 87 ), Vector2( 254, 92 ), Vector2( 254, 84 ), Vector2( 254, 92 ) ]
+}
+tracks/25/type = "value"
+tracks/25/path = NodePath("Y:scale")
+tracks/25/interp = 1
+tracks/25/loop_wrap = true
+tracks/25/imported = false
+tracks/25/enabled = true
+tracks/25/keys = {
+"times": PoolRealArray( 0, 0.695896, 0.962969, 1.24885 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 3, 3 ), Vector2( 3, 3 ), Vector2( 3, 3 ), Vector2( 1, 1 ) ]
+}
+tracks/26/type = "value"
+tracks/26/path = NodePath("Y:self_modulate")
+tracks/26/interp = 2
+tracks/26/loop_wrap = true
+tracks/26/imported = false
+tracks/26/enabled = true
+tracks/26/keys = {
+"times": PoolRealArray( 0, 0.364875, 0.594333, 0.677088, 0.793697, 0.9404, 3.68339, 3.98339 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0.619608, 0, 0.623529, 0 ), Color( 0.619608, 0, 0.623529, 0 ), Color( 0.619608, 0, 0.623529, 1 ), Color( 0.980392, 0.313726, 0.105882, 1 ), Color( 0.952941, 0.917647, 0.027451, 1 ), Color( 0, 0.301961, 0.623529, 1 ), Color( 0, 0.301961, 0.623529, 1 ), Color( 0, 0.301961, 0.623529, 0 ) ]
+}
+tracks/27/type = "method"
+tracks/27/path = NodePath(".")
+tracks/27/interp = 1
+tracks/27/loop_wrap = true
+tracks/27/imported = false
+tracks/27/enabled = true
+tracks/27/keys = {
+"times": PoolRealArray( 4.7 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "goto_next_scene"
+} ]
+}
+tracks/28/type = "value"
+tracks/28/path = NodePath("Light2D:position")
+tracks/28/interp = 2
+tracks/28/loop_wrap = true
+tracks/28/imported = false
+tracks/28/enabled = true
+tracks/28/keys = {
+"times": PoolRealArray( 0, 2.01, 2.47, 2.97, 3.61 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 20, 110 ), Vector2( 56, 110 ), Vector2( 120, 110 ), Vector2( 266, 110 ), Vector2( 302, 110 ) ]
+}
+
+[node name="IntroGBA" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+light_mask = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 32.0
+margin_top = 17.0
+margin_right = -32.0
+margin_bottom = -25.0
+
+[node name="L" type="Sprite" parent="."]
+self_modulate = Color( 0, 0.301961, 0.623529, 1 )
+position = Vector2( 93, 92 )
+texture = ExtResource( 11 )
+
+[node name="E" type="Sprite" parent="."]
+modulate = Color( 0.682353, 0.054902, 0.533333, 0.337255 )
+position = Vector2( 89, 178 )
+scale = Vector2( 2.5, 2.5 )
+texture = ExtResource( 9 )
+
+[node name="N" type="Sprite" parent="."]
+self_modulate = Color( 0, 0.301961, 0.623529, 0 )
+position = Vector2( 132, 148 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 8 )
+
+[node name="I" type="Sprite" parent="."]
+self_modulate = Color( 0, 0.301961, 0.623529, 0 )
+position = Vector2( 151, 87 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 1 )
+
+[node name="O_1" type="Sprite" parent="."]
+self_modulate = Color( 0, 0.301961, 0.623529, 0 )
+position = Vector2( 171, 92 )
+texture = ExtResource( 12 )
+
+[node name="B" type="Sprite" parent="."]
+self_modulate = Color( 0, 0.301961, 0.623529, 0 )
+position = Vector2( 201, 92 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 7 )
+
+[node name="O" type="Sprite" parent="."]
+self_modulate = Color( 0, 0.301961, 0.623529, 0 )
+position = Vector2( 247, 197 )
+texture = ExtResource( 12 )
+
+[node name="Y" type="Sprite" parent="."]
+self_modulate = Color( 0, 0.301961, 0.623529, 0 )
+position = Vector2( 289, 193 )
+texture = ExtResource( 6 )
+
+[node name="Leniolabs" type="Sprite" parent="."]
+self_modulate = Color( 0.941176, 0.560784, 0.882353, 1 )
+position = Vector2( 173, 163 )
+texture = ExtResource( 13 )
+
+[node name="LeniolabsDot" type="Sprite" parent="."]
+self_modulate = Color( 0.941176, 0.560784, 0.882353, 1 )
+position = Vector2( 224, 157 )
+texture = ExtResource( 14 )
+
+[node name="Lenioboy" type="Sprite" parent="."]
+visible = false
+modulate = Color( 0.00392157, 0.278431, 0.482353, 1 )
+position = Vector2( 176, 92 )
+z_index = -3
+texture = ExtResource( 10 )
+
+[node name="Light2D" type="Light2D" parent="."]
+position = Vector2( 302, 110 )
+scale = Vector2( 0.25, 164 )
+texture = SubResource( 6 )
+color = Color( 0.87451, 0.352941, 0.984314, 1 )
+energy = 9.15
+mode = 3
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+mix_target = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 4 )
+anims/boot = SubResource( 3 )
+
+[node name="LBOverlay" parent="." instance=ExtResource( 4 )]

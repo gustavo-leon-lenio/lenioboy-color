@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/freesound_very_lush_and_swag_loop_by_dpren.ogg-270c55733bc0cb43845bfe20d4f1e881.oggstr"
+
+[deps]
+
+source_file="res://assets/sounds/music/freesound_very_lush_and_swag_loop_by_dpren.ogg"
+dest_files=[ "res://.import/freesound_very_lush_and_swag_loop_by_dpren.ogg-270c55733bc0cb43845bfe20d4f1e881.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

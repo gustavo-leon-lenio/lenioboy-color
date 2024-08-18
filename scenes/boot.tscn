@@ -1,0 +1,74 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://scripts/boot.gd" type="Script" id=1]
+[ext_resource path="res://assets/sprites/ui/power_button_1.png" type="Texture" id=2]
+[ext_resource path="res://assets/sounds/fxs/power_switch.wav" type="AudioStream" id=3]
+[ext_resource path="res://assets/sprites/ui/power_button_2.png" type="Texture" id=4]
+[ext_resource path="res://resources/font_data/kenney_pixel.tres" type="DynamicFont" id=5]
+
+[sub_resource type="InputEventAction" id=1]
+action = "ui_accept"
+pressed = true
+
+[sub_resource type="ShortCut" id=2]
+shortcut = SubResource( 1 )
+
+[node name="Boot" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_vertical_guides_": [ -414.0 ]
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+volume_db = 1.238
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+input_pass_on_modal_close_click = false
+color = Color( 0, 0, 0, 1 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_top = -8.0
+margin_bottom = 8.0
+alignment = 1
+
+[node name="Off" type="Label" parent="HBoxContainer"]
+margin_left = 142.0
+margin_right = 160.0
+margin_bottom = 16.0
+grow_horizontal = 2
+size_flags_vertical = 7
+custom_fonts/font = ExtResource( 5 )
+text = "Off"
+align = 2
+valign = 1
+
+[node name="Button" type="TextureButton" parent="HBoxContainer"]
+margin_left = 164.0
+margin_right = 192.0
+margin_bottom = 16.0
+toggle_mode = true
+action_mode = 0
+shortcut = SubResource( 2 )
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 4 )
+stretch_mode = 3
+
+[node name="On" type="Label" parent="HBoxContainer"]
+margin_left = 196.0
+margin_right = 208.0
+margin_bottom = 16.0
+size_flags_vertical = 7
+custom_fonts/font = ExtResource( 5 )
+text = "On"
+valign = 1
+
+[connection signal="toggled" from="HBoxContainer/Button" to="." method="on_button_pressed"]

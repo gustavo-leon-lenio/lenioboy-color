@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.831373, 0.415686, 0.415686, 1 )
+
+[node name="ScoreItem" index="0"]
+rect_min_size = Vector2( 434, 64 )
+custom_styles/panel = SubResource( 1 )
+
+[node name="Score" parent="." index="1"]
+margin_left = 360.0
+margin_right = 427.0

@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/402288__matrixxx__retro-coin-02.wav-771dca3cd95d0bf2a44130106fe19df2.sample"
+
+[deps]
+
+source_file="res://assets/sounds/fxs/402288__matrixxx__retro-coin-02.wav"
+dest_files=[ "res://.import/402288__matrixxx__retro-coin-02.wav-771dca3cd95d0bf2a44130106fe19df2.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

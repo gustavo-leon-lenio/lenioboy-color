@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/short_elevator_music_loopby_blond_panda.ogg-9d98a24aa3af81bcc40cc15f8e12521c.oggstr"
+
+[deps]
+
+source_file="res://assets/sounds/music/short_elevator_music_loopby_blond_panda.ogg"
+dest_files=[ "res://.import/short_elevator_music_loopby_blond_panda.ogg-9d98a24aa3af81bcc40cc15f8e12521c.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

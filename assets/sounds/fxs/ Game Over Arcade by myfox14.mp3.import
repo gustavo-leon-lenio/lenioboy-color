@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/ Game Over Arcade by myfox14.mp3-6a428a7465f864f44d6dc37e4a12f1b5.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds/fxs/ Game Over Arcade by myfox14.mp3"
+dest_files=[ "res://.import/ Game Over Arcade by myfox14.mp3-6a428a7465f864f44d6dc37e4a12f1b5.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,0 +1,186 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://assets/overlay/leniboy_overlay_wide.png" type="Texture" id=1]
+[ext_resource path="res://materials/original_gb_material.tres" type="Material" id=2]
+[ext_resource path="res://materials/vhs_material.tres" type="Material" id=3]
+[ext_resource path="res://materials/scan_lines_material.tres" type="Material" id=4]
+[ext_resource path="res://materials/static_noise_material.tres" type="Material" id=5]
+[ext_resource path="res://scenes/ui/lenioboy_overlay.gd" type="Script" id=6]
+
+[sub_resource type="Animation" id=2]
+resource_name = "crt_vhs_1"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("Shaders/ScanLines:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Shaders/CRTVHS:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Shaders/CRTVHS:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "game_boy"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("Shaders/GameBoyOriginal:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Color( 1, 1, 1, 0.85 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.85 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.85 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Shaders/GameBoyOriginal:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Shaders/CRTVHS:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=1]
+resource_name = "scan_lines"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("Shaders/ScanLines:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( -0.000961971, 0.0993441, 0.201879, 0.304092, 0.396062 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Shaders/ScanLines:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[node name="LBOverlay" type="CanvasLayer"]
+layer = 6
+script = ExtResource( 6 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/crt_vhs_1 = SubResource( 2 )
+anims/game_boy = SubResource( 3 )
+anims/scan_lines = SubResource( 1 )
+
+[node name="Shaders" type="Control" parent="."]
+light_mask = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 33.0
+margin_top = 18.0
+margin_right = -33.0
+margin_bottom = -26.0
+mouse_filter = 2
+input_pass_on_modal_close_click = false
+
+[node name="ScanLines" type="ColorRect" parent="Shaders"]
+visible = false
+material = ExtResource( 4 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+input_pass_on_modal_close_click = false
+
+[node name="CRTVHS" type="ColorRect" parent="Shaders"]
+visible = false
+material = ExtResource( 3 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+input_pass_on_modal_close_click = false
+
+[node name="GameBoyOriginal" type="ColorRect" parent="Shaders"]
+visible = false
+self_modulate = Color( 1, 1, 1, 0.85 )
+material = ExtResource( 2 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+input_pass_on_modal_close_click = false
+
+[node name="Static" type="ColorRect" parent="Shaders"]
+visible = false
+material = ExtResource( 5 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+input_pass_on_modal_close_click = false
+
+[node name="LenioboyMargin" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="TextureRect" type="TextureRect" parent="LenioboyMargin"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+input_pass_on_modal_close_click = false
+texture = ExtResource( 1 )
+expand = true

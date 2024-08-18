@@ -1,0 +1,119 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://resources/sprite_animations/leni_sprite_frames.tres" type="SpriteFrames" id=1]
+[ext_resource path="res://scripts/leni.gd" type="Script" id=2]
+[ext_resource path="res://assets/sprites/emotes.png" type="Texture" id=3]
+[ext_resource path="res://scenes/components/health_component.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/components/hitbox_component.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/sounds/fxs/hop.ogg" type="AudioStream" id=6]
+[ext_resource path="res://assets/sounds/fxs/fruit.wav" type="AudioStream" id=7]
+[ext_resource path="res://assets/sounds/fxs/game_over_myfox14.wav" type="AudioStream" id=8]
+
+[sub_resource type="RectangleShape2D" id=13]
+extents = Vector2( 6, 2 )
+
+[sub_resource type="RectangleShape2D" id=14]
+extents = Vector2( 6, 5.5 )
+
+[sub_resource type="RectangleShape2D" id=15]
+extents = Vector2( 2, 20 )
+
+[sub_resource type="Animation" id=16]
+resource_name = "damage"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.0586353, 0.106689, 0.167248, 0.218188, 0.279709, 0.338344, 0.397024, 0.484608 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.443137 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.443137 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.443137 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.443137 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[node name="Leni" type="KinematicBody2D"]
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+pause_mode = 2
+visible = false
+position = Vector2( 0, -33 )
+z_index = 5
+texture = ExtResource( 3 )
+hframes = 5
+vframes = 6
+frame = 11
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+pause_mode = 2
+z_index = 5
+frames = ExtResource( 1 )
+animation = "run"
+offset = Vector2( 0, -12 )
+
+[node name="BodyCollision" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -2 )
+shape = SubResource( 13 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="JumpSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+volume_db = -11.968
+
+[node name="GameOver" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
+stream = ExtResource( 8 )
+volume_db = -6.912
+
+[node name="FruitSoundPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+volume_db = -7.222
+
+[node name="EmoteSound" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
+
+[node name="CoyoteTimer" type="Timer" parent="."]
+
+[node name="BufferTimer" type="Timer" parent="."]
+
+[node name="HealthComponent" parent="." instance=ExtResource( 4 )]
+main_player = true
+
+[node name="HitboxComponent" parent="." instance=ExtResource( 5 )]
+
+[node name="Crouch" type="CollisionShape2D" parent="HitboxComponent"]
+position = Vector2( 0, -7 )
+shape = SubResource( 14 )
+
+[node name="Run" type="CollisionShape2D" parent="HitboxComponent"]
+position = Vector2( 0, -16.5 )
+shape = SubResource( 14 )
+
+[node name="ObstaclePass" type="Area2D" parent="."]
+position = Vector2( 0, 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ObstaclePass"]
+self_modulate = Color( 0.247059, 0.654902, 0.482353, 1 )
+position = Vector2( 8, 18 )
+shape = SubResource( 15 )
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2( 6, 0 )
+scale = Vector2( 1.5, 1.5 )
+lifetime = 0.8
+gravity = Vector2( 0, 0 )
+initial_velocity = 15.0
+color = Color( 0.360784, 0.721569, 0.34902, 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/damage = SubResource( 16 )
+
+[connection signal="area_entered" from="HitboxComponent" to="." method="on_hitbox_area_entered"]
+[connection signal="area_exited" from="ObstaclePass" to="." method="on_obstacle_area_exited"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="on_animation_player_finished"]
