@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://mojs51405fwv"]
+
+[ext_resource type="Shader" path="res://shaders/scan_lines.gdshader" id="1"]
+
+[resource]
+shader = ExtResource("1")
+shader_parameter/scanline_count = 50.0
+shader_parameter/uv_multiplier = 2.4
+shader_parameter/uv_div_x = 6.358
+shader_parameter/uv_div_y = 15.0

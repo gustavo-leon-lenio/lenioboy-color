@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://ny1ml06xcvh7"]
+
+[ext_resource type="PackedScene" path="res://scenes/components/move_component.tscn" id="1"]
+[ext_resource type="Texture2D" uid="uid://bi0leget47ktm" path="res://assets/sprites/flag_1.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://d3pvjb6qgbk3q" path="res://assets/sprites/flag_2.png" id="3"]
+
+[sub_resource type="SpriteFrames" id="1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="2"]
+size = Vector2(16, 14)
+
+[node name="Area2D" type="Area2D" groups=["flag"]]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -9)
+sprite_frames = SubResource("1")
+autoplay = "default"
+frame = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, -8)
+shape = SubResource("2")
+
+[node name="MoveComponent" parent="." instance=ExtResource("1")]

@@ -1,0 +1,32 @@
+[gd_resource type="SpriteFrames" load_steps=5 format=3 uid="uid://0p1tn4o08s3u"]
+
+[ext_resource type="Texture2D" uid="uid://bqpd1rmj56x02" path="res://assets/enemies/chubly/chubly_sprite_sheet.png" id="1_bd6g0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tl1ri"]
+atlas = ExtResource("1_bd6g0")
+region = Rect2(0, 0, 24, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7bwvr"]
+atlas = ExtResource("1_bd6g0")
+region = Rect2(24, 0, 24, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bai5j"]
+atlas = ExtResource("1_bd6g0")
+region = Rect2(48, 0, 24, 22)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tl1ri")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7bwvr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bai5j")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]

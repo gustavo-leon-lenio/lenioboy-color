@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://vkmu4y78yig3"]
+
+[ext_resource type="Script" path="res://scripts/enemy.gd" id="1"]
+[ext_resource type="SpriteFrames" uid="uid://0p1tn4o08s3u" path="res://resources/sprite_animations/chubly_sprite_anim.tres" id="2_m31a7"]
+[ext_resource type="PackedScene" path="res://scenes/components/move_component.tscn" id="4"]
+[ext_resource type="PackedScene" uid="uid://cx1cmgwxy6upg" path="res://scenes/beat_effect.tscn" id="4_cmx1m"]
+
+[sub_resource type="RectangleShape2D" id="9"]
+size = Vector2(18, 17)
+
+[node name="Area2D" type="Area2D" node_paths=PackedStringArray("visibility_notifier") groups=["enemy"]]
+script = ExtResource("1")
+visibility_notifier = NodePath("VisibleOnScreenNotifier2D")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -11)
+sprite_frames = ExtResource("2_m31a7")
+autoplay = "default"
+frame_progress = 0.66746
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -10.5)
+shape = SubResource("9")
+
+[node name="MoveComponent" parent="." instance=ExtResource("4")]
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(0, -11)
+scale = Vector2(1, 1.1)
+
+[node name="BeatEffect" parent="." node_paths=PackedStringArray("group_nodes") instance=ExtResource("4_cmx1m")]
+group_nodes = NodePath("../AnimatedSprite2D")

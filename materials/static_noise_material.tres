@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://dpvqg1sidfmmy"]
+
+[ext_resource type="Shader" path="res://shaders/static_noise.gdshader" id="1"]
+
+[resource]
+shader = ExtResource("1")
+shader_parameter/amount = 5.0
+shader_parameter/factor = 0.95
