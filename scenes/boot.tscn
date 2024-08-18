@@ -1,0 +1,65 @@
+[gd_scene load_steps=7 format=3 uid="uid://deiuv82nowc6k"]
+
+[ext_resource type="Script" path="res://scripts/boot.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://dcse68tibrach" path="res://assets/sprites/ui/switch_off.png" id="2"]
+[ext_resource type="AudioStream" uid="uid://denxudrx4x6u4" path="res://assets/sounds/fxs/power_switch.wav" id="3"]
+[ext_resource type="Texture2D" uid="uid://dcg0te5b4pxvs" path="res://assets/sprites/ui/switch_on.png" id="4"]
+[ext_resource type="FontFile" uid="uid://dve0218uk5ted" path="res://resources/font_data/kenney_pixel.tres" id="5"]
+
+[sub_resource type="Shortcut" id="2"]
+
+[node name="Boot" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3")
+volume_db = 1.238
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -8.0
+offset_bottom = 8.0
+alignment = 1
+
+[node name="Off" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 7
+theme_override_fonts/font = ExtResource("5")
+text = "Off"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Button" type="TextureButton" parent="HBoxContainer"]
+layout_mode = 2
+toggle_mode = true
+action_mode = 0
+shortcut = SubResource("2")
+texture_normal = ExtResource("2")
+texture_pressed = ExtResource("4")
+stretch_mode = 3
+
+[node name="On" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 7
+theme_override_fonts/font = ExtResource("5")
+text = "On"
+vertical_alignment = 1
+
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]
+[connection signal="toggled" from="HBoxContainer/Button" to="." method="on_button_pressed"]

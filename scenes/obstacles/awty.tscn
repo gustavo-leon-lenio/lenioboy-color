@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=3 uid="uid://b18odts24caqg"]
+
+[ext_resource type="Script" path="res://scripts/enemy.gd" id="2"]
+[ext_resource type="SpriteFrames" uid="uid://w12tbwoj3v81" path="res://resources/sprite_animations/awty_sprite_anim.tres" id="2_n0vsc"]
+[ext_resource type="PackedScene" path="res://scenes/components/move_component.tscn" id="3"]
+[ext_resource type="PackedScene" uid="uid://cx1cmgwxy6upg" path="res://scenes/beat_effect.tscn" id="4_pvdp0"]
+
+[sub_resource type="RectangleShape2D" id="9"]
+size = Vector2(15, 7)
+
+[sub_resource type="RectangleShape2D" id="13"]
+size = Vector2(25, 8)
+
+[node name="Area2D" type="Area2D" node_paths=PackedStringArray("visibility_notifier") groups=["enemy"]]
+script = ExtResource("2")
+visibility_notifier = NodePath("VisibleOnScreenNotifier2D")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+process_mode = 3
+position = Vector2(-1, -10.5)
+sprite_frames = ExtResource("2_n0vsc")
+autoplay = "default"
+frame_progress = 0.000145349
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, -11.5)
+shape = SubResource("9")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(-1, -4)
+shape = SubResource("13")
+
+[node name="MoveComponent" parent="." instance=ExtResource("3")]
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(-0.5, -10)
+scale = Vector2(1.35, 1)
+
+[node name="BeatEffect" parent="." node_paths=PackedStringArray("group_nodes") instance=ExtResource("4_pvdp0")]
+group_nodes = NodePath("../AnimatedSprite2D")

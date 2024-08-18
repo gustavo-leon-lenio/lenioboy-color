@@ -1,0 +1,50 @@
+[gd_scene load_steps=8 format=3 uid="uid://bc15puk1tiis4"]
+
+[ext_resource type="Texture2D" uid="uid://vl4yn5psisk5" path="res://assets/leni/leni_sprite_sheet.png" id="1_srykq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tbqh0"]
+atlas = ExtResource("1_srykq")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_01cwd"]
+atlas = ExtResource("1_srykq")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7y36m"]
+atlas = ExtResource("1_srykq")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jp0hx"]
+atlas = ExtResource("1_srykq")
+region = Rect2(72, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c1g05"]
+atlas = ExtResource("1_srykq")
+region = Rect2(0, 24, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vunld"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tbqh0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_01cwd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7y36m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jp0hx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c1g05")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="LeniAnimatedSprite" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_vunld")
+autoplay = "default"

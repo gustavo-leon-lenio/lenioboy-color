@@ -1,0 +1,82 @@
+[gd_scene load_steps=8 format=3 uid="uid://c61wkr738o4m4"]
+
+[ext_resource type="Texture2D" uid="uid://cggkd2jd4khp0" path="res://assets/background/background_mountains.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://c40nh2yh86tk3" path="res://assets/background/floor_hop.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://xvn6hxd0w0vt" path="res://assets/background/background_hills.png" id="4"]
+[ext_resource type="Script" path="res://scripts/parallax_background.gd" id="5"]
+[ext_resource type="Texture2D" uid="uid://myxltwriiteb" path="res://assets/background/background_clouds.png" id="6"]
+[ext_resource type="Shader" path="res://shaders/palette_swap.gdshader" id="6_2hsnv"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_d11mn"]
+shader = ExtResource("6_2hsnv")
+shader_parameter/tolerance = 0.03
+shader_parameter/from_color1 = Color(0.318, 0.671, 0.886, 1)
+shader_parameter/from_color2 = Color(1, 1, 1, 1)
+shader_parameter/from_color3 = Color(0.8, 0.51, 0.37, 1)
+shader_parameter/from_color4 = Color(0.714, 0.835, 0.235, 1)
+shader_parameter/from_color5 = Color(0.443, 0.667, 0.204, 1)
+shader_parameter/from_color6 = Color(0.71, 0.84, 0.24, 1)
+shader_parameter/from_color7 = Color(0.67, 0.38, 0.35, 1)
+shader_parameter/to_color1 = Color(0.318, 0.671, 0.886, 1)
+shader_parameter/to_color2 = Color(1, 1, 1, 1)
+shader_parameter/to_color3 = Color(0.8, 0.51, 0.37, 1)
+shader_parameter/to_color4 = Color(0.714, 0.835, 0.235, 1)
+shader_parameter/to_color5 = Color(0.443, 0.667, 0.204, 1)
+shader_parameter/to_color6 = Color(0.79, 0.24, 0.84, 1)
+shader_parameter/to_color7 = Color(0.43, 0.62, 0.49, 1)
+
+[node name="ParallaxBackground" type="ParallaxBackground" node_paths=PackedStringArray("timer", "palette")]
+script = ExtResource("5")
+timer = NodePath("Timer")
+palette = NodePath("PaletteSwap")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 25.0
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.317647, 0.670588, 0.886275, 1)
+
+[node name="Clouds" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(-0.025, 0)
+motion_mirroring = Vector2(408, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Clouds"]
+position = Vector2(159, 93)
+texture = ExtResource("6")
+
+[node name="Mountains" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.3, 0)
+motion_mirroring = Vector2(408, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Mountains"]
+position = Vector2(159, 136)
+texture = ExtResource("2")
+
+[node name="Hills" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.7, 0)
+motion_mirroring = Vector2(408, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Hills"]
+position = Vector2(160, 163)
+texture = ExtResource("4")
+
+[node name="Floors" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(396, 18)
+
+[node name="Sprite2D" type="Sprite2D" parent="Floors"]
+position = Vector2(159, 184)
+texture = ExtResource("3")
+
+[node name="PaletteSwap" type="ColorRect" parent="."]
+z_index = 1
+material = SubResource("ShaderMaterial_d11mn")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

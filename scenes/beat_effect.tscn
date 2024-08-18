@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cx1cmgwxy6upg"]
+
+[ext_resource type="Script" path="res://scenes/obstacles/beat_effect.gd" id="1_blx4o"]
+
+[node name="BeatEffect" type="Node"]
+script = ExtResource("1_blx4o")

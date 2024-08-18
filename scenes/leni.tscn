@@ -1,0 +1,183 @@
+[gd_scene load_steps=21 format=3 uid="uid://kei53tt824qa"]
+
+[ext_resource type="Script" path="res://scripts/leni.gd" id="2"]
+[ext_resource type="PackedScene" uid="uid://ddasxikcublj8" path="res://scenes/popup.tscn" id="2_g0jsw"]
+[ext_resource type="SpriteFrames" uid="uid://duhbsef5jfthh" path="res://scenes/leni_res/leni_anim_sprites.tres" id="2_mjwh2"]
+[ext_resource type="Texture2D" uid="uid://nc0whucxdyhp" path="res://assets/sprites/emotes.png" id="3"]
+[ext_resource type="PackedScene" uid="uid://feua2sgu66us" path="res://scenes/components/health_component.tscn" id="4"]
+[ext_resource type="Shape2D" uid="uid://cv3fjn0ahu3jm" path="res://scenes/leni_res/leni_body_collision.tres" id="4_plh3g"]
+[ext_resource type="PackedScene" uid="uid://bxr0oumgb7qbi" path="res://scenes/components/hitbox_component.tscn" id="5"]
+[ext_resource type="AudioStream" uid="uid://2gv7y4vpl72s" path="res://assets/sounds/fxs/chords/G.ogg" id="5_bpvvb"]
+[ext_resource type="AudioStream" uid="uid://dyc5kdfr6jt0k" path="res://assets/sounds/fxs/fruit.wav" id="7"]
+[ext_resource type="AudioStream" uid="uid://bkf8v3fp4uw5p" path="res://assets/sounds/fxs/game_over_myfox14.wav" id="8"]
+[ext_resource type="Shape2D" uid="uid://d11wnfhw406jt" path="res://scenes/leni_res/leni_run_coll.tres" id="10_b5gmo"]
+[ext_resource type="Shape2D" uid="uid://cb2rh1stk5bhn" path="res://scenes/leni_res/leni_obstacle_pass_coll.tres" id="10_tepn4"]
+[ext_resource type="AudioStream" uid="uid://cttnb3q4ltxjv" path="res://assets/sounds/fxs/chords/C.ogg" id="12_w5hr5"]
+[ext_resource type="AudioStream" uid="uid://nxjmg0b1doc5" path="res://assets/sounds/fxs/chords/Bb.ogg" id="13_hylxd"]
+[ext_resource type="AudioStream" uid="uid://caovnjft0ini0" path="res://assets/sounds/fxs/chords/Bm.ogg" id="14_nfmd4"]
+[ext_resource type="AudioStream" uid="uid://b232mkpbc64y" path="res://assets/sounds/fxs/chords/D.ogg" id="15_sgco2"]
+[ext_resource type="AudioStream" uid="uid://cyhg7ku7eocil" path="res://assets/sounds/fxs/chords/Dm.ogg" id="16_cixq0"]
+
+[sub_resource type="Animation" id="Animation_ixl08"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_to256"]
+resource_name = "damage"
+length = 0.5
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0586353, 0.106689, 0.167248, 0.218188, 0.279709, 0.338344, 0.397024, 0.484608),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.443137), Color(1, 1, 1, 1), Color(1, 1, 1, 0.443137), Color(1, 1, 1, 1), Color(1, 1, 1, 0.443137), Color(1, 1, 1, 1), Color(1, 1, 1, 0.443137), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5hc11"]
+_data = {
+"RESET": SubResource("Animation_ixl08"),
+"damage": SubResource("Animation_to256")
+}
+
+[node name="Leni" type="CharacterBody2D" node_paths=PackedStringArray("animated_sprite", "animation_player", "jump_audio_player", "game_over_audio", "fruit_sound", "emote_sound", "coyote_timer", "buffer_timer", "dust_particles", "emote", "hit_box_component", "run_collision_shape", "popup_position")]
+z_index = 2
+slide_on_ceiling = false
+script = ExtResource("2")
+animated_sprite = NodePath("AnimatedSprite2D")
+animation_player = NodePath("AnimationPlayer")
+jump_audio_player = NodePath("Chords/G")
+game_over_audio = NodePath("GameOver")
+fruit_sound = NodePath("FruitSoundPlayer")
+emote_sound = NodePath("EmoteSound")
+coyote_timer = NodePath("CoyoteTimer")
+buffer_timer = NodePath("BufferTimer")
+dust_particles = NodePath("CPUParticles2D")
+emote = NodePath("EmoteSprite")
+hit_box_component = NodePath("HitboxComponent")
+run_collision_shape = NodePath("HitboxComponent/Run")
+fruit_pickup_popup = ExtResource("2_g0jsw")
+popup_position = NodePath("PopupPosition")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("2_mjwh2")
+animation = &"run"
+autoplay = "run"
+offset = Vector2(2.08165e-12, -12)
+
+[node name="EmoteSprite" type="Sprite2D" parent="."]
+process_mode = 3
+visible = false
+z_index = 5
+position = Vector2(0, -33)
+texture = ExtResource("3")
+hframes = 5
+vframes = 6
+frame = 11
+
+[node name="BodyCollision" type="CollisionShape2D" parent="."]
+position = Vector2(0, -2)
+shape = ExtResource("4_plh3g")
+
+[node name="Chords" type="Node" parent="."]
+
+[node name="C" type="AudioStreamPlayer" parent="Chords"]
+stream = ExtResource("12_w5hr5")
+volume_db = -10.0
+playback_type = 2
+
+[node name="Bb" type="AudioStreamPlayer" parent="Chords"]
+stream = ExtResource("13_hylxd")
+volume_db = -10.0
+playback_type = 2
+
+[node name="Bm" type="AudioStreamPlayer" parent="Chords"]
+stream = ExtResource("14_nfmd4")
+volume_db = -10.0
+playback_type = 2
+
+[node name="D" type="AudioStreamPlayer" parent="Chords"]
+stream = ExtResource("15_sgco2")
+volume_db = -10.0
+playback_type = 2
+
+[node name="Dm" type="AudioStreamPlayer" parent="Chords"]
+stream = ExtResource("16_cixq0")
+volume_db = -10.0
+playback_type = 2
+
+[node name="G" type="AudioStreamPlayer" parent="Chords"]
+stream = ExtResource("5_bpvvb")
+volume_db = -10.0
+playback_type = 2
+
+[node name="GameOver" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("8")
+volume_db = -6.912
+playback_type = 2
+
+[node name="FruitSoundPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7")
+volume_db = -7.222
+playback_type = 2
+
+[node name="EmoteSound" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+playback_type = 2
+
+[node name="CoyoteTimer" type="Timer" parent="."]
+process_callback = 0
+
+[node name="BufferTimer" type="Timer" parent="."]
+process_callback = 0
+
+[node name="HealthComponent" parent="." instance=ExtResource("4")]
+visible = false
+main_player = true
+
+[node name="HitboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("5")]
+health_component = NodePath("../HealthComponent")
+
+[node name="Crouch" type="CollisionShape2D" parent="HitboxComponent"]
+z_index = 6
+position = Vector2(0, -7)
+shape = ExtResource("10_b5gmo")
+debug_color = Color(0.689128, 0.062816, 1.70679e-07, 0.42)
+
+[node name="Run" type="CollisionShape2D" parent="HitboxComponent"]
+z_index = 6
+position = Vector2(0, -16.5)
+shape = ExtResource("10_b5gmo")
+debug_color = Color(0.731384, 0.0903955, 0.443988, 0.42)
+
+[node name="ObstaclePass" type="Area2D" parent="."]
+position = Vector2(0, 2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ObstaclePass"]
+self_modulate = Color(0.247059, 0.654902, 0.482353, 1)
+position = Vector2(8, 18)
+shape = ExtResource("10_tepn4")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(6, 0)
+scale = Vector2(1.5, 1.5)
+lifetime = 0.8
+gravity = Vector2(0, 0)
+color = Color(0.360784, 0.721569, 0.34902, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_5hc11")
+}
+
+[node name="PopupPosition" type="Marker2D" parent="."]
+position = Vector2(0, -32)
+
+[connection signal="area_entered" from="HitboxComponent" to="." method="on_hitbox_area_entered"]
+[connection signal="area_exited" from="ObstaclePass" to="." method="on_obstacle_area_exited"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
